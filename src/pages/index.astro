@@ -1,0 +1,14 @@
+---
+import "../styles/normalize.css";
+import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Avatar from "../svg/Avatar.astro";
+
+const title = "Gonzalo Piccinini's blog";
+const description = "";
+---
+
+<BaseLayout title={title} description={description}>
+  <h1>Hi there!, this is my blog</h1>
+  <Avatar width={600} height={600} />
+</BaseLayout>

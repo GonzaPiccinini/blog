@@ -1,0 +1,35 @@
+/* import fonts */
+@font-face {
+    font-family: 'BeVietnamPro';
+    src: url('../assets/fonts/BeVietnamPro.ttf') format('truetype');
+    font-weight: 500 600 800;
+    font-style: normal;
+}
+
+/* config */
+:root {
+    /* variables */
+    /* fonts */
+    --ff-primary: 'BeVietnamPro', sans-serif;
+
+    /* colours */
+    --clr-primary: hsl(220, 5%, 11%);
+
+    --clr-accent-red: hsl(6, 78%, 57%);
+    --clr-accent-orange: hsl(37, 90%, 51%);
+    --clr-accent-green: hsl(145, 63%, 42%);
+
+    --clr-neutral-white: hsl(0, 0%, 96%);
+    --clr-neutral-gray: hsl(0, 0%, 40%);
+    --clr-neutral-black: hsl(0, 0%, 6%);
+
+}
+
+/* general styling */
+body {
+    font-family: var(--ff-primary);
+    background-color: var(--clr-neutral-white);
+    color: var(--clr-primary);
+}
+
+/* utility classes */
