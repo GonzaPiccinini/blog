@@ -1,13 +1,81 @@
 ---
+import Avatar from "../svg/Avatar.astro";
 
+const navListItems: Array<{
+  title: string;
+  link: string;
+}> = [
+  {
+    title: "Portfolio",
+    link: "https://gonzalopiccinini.vercel.app",
+  },
+  {
+    title: "Posts",
+    link: "#",
+  },
+  {
+    title: "Tags",
+    link: "#",
+  },
+];
 ---
 
-<header>
-  <nav>
-    <ul>
-      <li>Portfolio</li>
-      <li>Blogs</li>
-      <li>Tags</li>
-    </ul>
-  </nav>
+<header class="header">
+  <div class="nav__container">
+    <nav class="nav fs-nav">
+      <Avatar />
+      <ul class="nav__ul">
+        {
+          navListItems.map((item) => (
+            <li class="nav__li">
+              <a target="_blank" href={item.link}>
+                {item.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
 </header>
+
+<style>
+  .nav__container {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 0 6px 1px rgb(0, 0, 0, 0.1);
+  }
+
+  .nav {
+    background-color: var(--clr-neutral-white);
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    width: 100%;
+    padding: 0 20px;
+  }
+  .nav__ul {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .nav__li {
+    list-style: none;
+  }
+
+  /* desktop */
+  @media only screen and (min-width: 1024px) {
+    .nav__container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav {
+      padding: 0;
+      width: 50%;
+    }
+  }
+</style>

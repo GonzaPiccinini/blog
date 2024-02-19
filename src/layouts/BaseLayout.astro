@@ -19,10 +19,33 @@ const { title, description } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <Navigation />
-
-    <slot />
+    <div class="baseLayout">
+      <Navigation />
+      <div class="baseLayout__content">
+        <slot />
+      </div>
+    </div>
   </body>
 </html>
 
-<style></style>
+<style>
+  .baseLayout {
+    width: 100%;
+    max-height: 100vh;
+  }
+
+  .baseLayout__content {
+    margin-top: 75px;
+  }
+
+  /* tablets */
+  @media only screen and (min-width: 768px) and (max-width: 1023px) {
+  }
+
+  /* desktop */
+  @media only screen and (min-width: 1024px) {
+    .baseLayout {
+      width: 50%;
+    }
+  }
+</style>
