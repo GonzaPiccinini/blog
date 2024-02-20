@@ -1,5 +1,6 @@
 ---
 import Navigation from "../components/Navigation.astro";
+import ProgressBar from "../components/ProgressBar.astro";
 
 interface Props {
   title: string;
@@ -22,6 +23,7 @@ const { title, description } = Astro.props;
     <div class="baseLayout">
       <Navigation />
       <div class="baseLayout__content">
+        <ProgressBar />
         <slot />
       </div>
     </div>
@@ -35,7 +37,8 @@ const { title, description } = Astro.props;
   }
 
   .baseLayout__content {
-    margin-top: 75px;
+    margin-top: 100px;
+    padding: 0 10px;
   }
 
   /* tablets */
@@ -46,6 +49,9 @@ const { title, description } = Astro.props;
   @media only screen and (min-width: 1024px) {
     .baseLayout {
       width: 50%;
+    }
+    .baseLayout__content {
+      padding: 0;
     }
   }
 </style>

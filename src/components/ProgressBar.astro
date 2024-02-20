@@ -1,0 +1,27 @@
+---
+
+---
+
+<div class="progressBar bg-green"></div>
+
+<style>
+  .progressBar {
+    height: 2px;
+    width: 0%;
+    position: fixed;
+    top: 70px;
+    left: 0;
+
+    animation: progress-grow auto linear;
+    animation-timeline: scroll(root block);
+  }
+
+  @keyframes progress-grow {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
+  }
+</style>

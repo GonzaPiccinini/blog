@@ -2,20 +2,26 @@
 import "../styles/normalize.css";
 import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
-// import Avatar from "../svg/Avatar.astro";
+import PostCard from "../components/PostCard.astro";
 
 const title = "Gonzalo Piccinini's blog";
 const description = "";
 ---
 
 <BaseLayout title={title} description={description}>
-  <h1 class="fs-primary-heading fw-bold">
-    Welcome to <span class="text-green">my blog</span>
-  </h1>
-  <p>
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem
-    doloribus enim perferendis necessitatibus aliquid, odio dicta aliquam
-    quaerat. Natus libero quia illum saepe, odit enim dolor temporibus quod
-    vitae quaerat?
-  </p>
+  <main>
+    <h1 class="fw-bold">
+      Welcome to <span class="text-green">my blog</span>
+    </h1>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit delectus
+      velit itaque ipsa eum maiores beatae porro ut iusto facere cupiditate
+      magnam incidunt id rerum animi asperiores, dolorum facilis eaque?
+    </p>
+  </main>
+  <hr />
+  <h2 class="fs-secondary-heading fw-semibold">Publicaciones destacadas</h2>
+  <section>
+    <PostCard />
+  </section>
 </BaseLayout>
