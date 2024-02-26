@@ -1,0 +1,97 @@
+---
+import Image from "astro/components/Image.astro";
+import image from "../assets/images/barcelona.webp";
+
+const data = {
+  title: "POV: Top 10 Coworking Coffee Shop in Barcelona city",
+  category: "Travel",
+  img: {
+    src: image,
+    alt: "post-card-image",
+  },
+};
+
+const { absolute } = Astro.props;
+---
+
+<article class="post">
+  <Image class="post__image" src={data.img.src} alt={data.img.alt} />
+  <div class="post__text-container">
+    <p class="post__category">
+      <span class="text-red">● </span>
+      {data.category}
+    </p>
+    <h2 class="post__title">{data.title}</h2>
+    <p class="post__link">See more →</p>
+  </div>
+</article>
+
+<style>
+  .post {
+    display: flex;
+    height: max-content;
+    flex-direction: column;
+    gap: 10px;
+    transition: all 0.15s;
+
+    &:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+  }
+
+  .post__image {
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+  }
+
+  .post__text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .post__text-container > .post__category,
+  .post__text-container > .post__title,
+  .post__text-container > .post__link {
+    margin-block: 0;
+  }
+
+  .post__category {
+    width: max-content;
+    padding: 3px 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .post {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      min-height: 430px;
+      max-height: 460px;
+    }
+
+    .post__image {
+      width: 49%;
+      object-fit: cover;
+    }
+
+    .post__text-container {
+      width: 49%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+
+    .post__title {
+      text-wrap: pretty;
+    }
+
+    .post__link:hover {
+      text-decoration: underline;
+    }
+  }
+</style>

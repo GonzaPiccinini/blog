@@ -4,14 +4,16 @@ import Avatar from "../svg/Avatar.astro";
 const navListItems: Array<{
   title: string;
   link: string;
+  newPage?: boolean;
 }> = [
   {
     title: "Portfolio",
     link: "https://gonzalopiccinini.vercel.app",
+    newPage: true,
   },
   {
     title: "Posts",
-    link: "#",
+    link: "/posts",
   },
   {
     title: "Tags",
@@ -28,7 +30,7 @@ const navListItems: Array<{
         {
           navListItems.map((item) => (
             <li class="nav__li">
-              <a target="_blank" href={item.link}>
+              <a target={item.newPage ? "_blank" : "_self"} href={item.link}>
                 {item.title}
               </a>
             </li>

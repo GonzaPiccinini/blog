@@ -37,6 +37,7 @@ const { title, description } = Astro.props;
   }
 
   .baseLayout__content {
+    position: relative;
     margin-top: 100px;
     padding: 0 10px;
   }
@@ -46,7 +47,15 @@ const { title, description } = Astro.props;
   }
 
   /* desktop */
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (min-width: 1024px) and (max-width: 1123px) {
+    .baseLayout {
+      width: 60%;
+    }
+    .baseLayout__content {
+      padding: 0;
+    }
+  }
+  @media only screen and (min-width: 1124px) {
     .baseLayout {
       width: 50%;
     }

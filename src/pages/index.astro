@@ -2,26 +2,105 @@
 import "../styles/normalize.css";
 import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import PostCard from "../components/PostCard.astro";
+import HighlightPostCard from "../components/HighlightPostCard.astro";
 
-const title = "Gonzalo Piccinini's blog";
-const description = "";
+const title = "Pichi's Adventures";
+const description =
+  "Explore the fascinating world of technology and travel through the eyes of Gonzalo Piccinini. Discover in-depth analyses of hardware and software, find honest and helpful reviews, and immerse yourself in compelling stories of travel experiences. With authentic perspectives and solid insights, our blog is your reliable guide to an interconnected universe of innovation, adventure, and personal discovery. Join us to explore the latest in technology, gain practical tips, and embark on thrilling journeys through captivating narratives. Welcome to a space where technology meets the expedition!";
 ---
 
 <BaseLayout title={title} description={description}>
   <main>
     <h1 class="fw-bold">
-      Welcome to <span class="text-green">my blog</span>
+      <span class="text-green">{"< "}Pichi's Adventures{" />"}</span>
     </h1>
+    <p class="fw-semibold">by Gonzalo Piccinini</p>
     <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit delectus
-      velit itaque ipsa eum maiores beatae porro ut iusto facere cupiditate
-      magnam incidunt id rerum animi asperiores, dolorum facilis eaque?
+      Hi there, welcome to my blog. Here you can discover in-depth analyses of
+      hardware and software, find honest and helpful reviews, and inmerse
+      yourself in compelling stories of travel experiencies.
     </p>
   </main>
   <hr />
-  <h2 class="fs-secondary-heading fw-semibold">Publicaciones destacadas</h2>
-  <section>
-    <PostCard />
+  <h2 class="fs-secondary-heading fw-bold">Most recently posts</h2>
+  <section class="highlightPosts">
+    <div aria-label="Recently posts" class="carousel">
+      <HighlightPostCard absolute />
+      <button
+        class="carousel__button carousel__button-left fs-primary-heading text-primary"
+        >&#8656;</button
+      >
+      <button
+        class="carousel__button carousel__button-right fs-primary-heading text-primary"
+        >&#8658;</button
+      >
+    </div>
   </section>
 </BaseLayout>
+
+<style>
+  main {
+    text-align: center;
+  }
+
+  main > h1 {
+    margin-bottom: 0;
+    text-wrap: balance;
+  }
+
+  main > p {
+    text-wrap: pretty;
+  }
+
+  .highlightPosts {
+    position: relative;
+    width: 100%;
+    display: flex;
+  }
+
+  .carousel__button {
+    display: none;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    .highlightPosts {
+      display: flex;
+      justify-content: center;
+    }
+
+    .carousel {
+      width: 80%;
+      margin-inline: auto;
+    }
+
+    .carousel__button {
+      display: block;
+      position: absolute;
+      top: 40%;
+      background-color: rgba(150, 150, 150, 0.1);
+      border-radius: 5px;
+      border: none;
+    }
+
+    .carousel__button-left {
+      left: 0;
+
+      transition: all 0.15s;
+
+      &:hover {
+        cursor: pointer;
+        background-color: rgba(200, 200, 200, 0.1);
+      }
+    }
+
+    .carousel__button-right {
+      right: 0;
+      transition: all 0.15s;
+
+      &:hover {
+        cursor: pointer;
+        background-color: rgba(200, 200, 200, 0.1);
+      }
+    }
+  }
+</style>

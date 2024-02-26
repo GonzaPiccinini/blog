@@ -1,12 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import image2 from "../assets/images/redmiactive.jpg";
-
-/*
-interface Props {
-  size: "default";
-}
-*/
+import image from "../assets/images/redmiactive.webp";
+import Calendar from "../svg/Calendar.astro";
 
 const data = {
   author: "Gonzalo Piccinini",
@@ -14,12 +9,12 @@ const data = {
   title: "Unboxing & Review de los nuevos Xiaomi Redmi Buds Active 4",
   category: "Reviews",
   img: {
-    src: image2,
+    src: image,
     alt: "post-card-image",
   },
 };
 
-//const { size } = Astro.props;
+const { frontmatter } = Astro.props;
 ---
 
 <article class="postCard">
@@ -30,16 +25,18 @@ const data = {
       {data.category}
     </p>
     <h3 class="postCard__title">{data.title}</h3>
-    <p>
-      {data.date.getDay()}/{data.date.getMonth()}/{data.date.getFullYear()}
-    </p>
+    <div class="postCard__date-container">
+      <Calendar width="20px" />
+      <p>
+        {data.date.getDay()}/{data.date.getMonth()}/{data.date.getFullYear()}
+      </p>
+    </div>
   </div>
 </article>
 
 <style>
   .postCard {
-    min-width: 300px;
-    max-width: 400px;
+    max-width: 500px;
     border-radius: 10px;
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
     transition: all 0.15s;
@@ -67,5 +64,12 @@ const data = {
     padding: 3px 5px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 30px;
+  }
+  .postCard__date-container {
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    gap: 5px;
+    height: 20px;
   }
 </style>
